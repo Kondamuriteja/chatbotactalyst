@@ -19,4 +19,3 @@ if user_query:
         st.write(f"**Title:** {most_relevant_article['title']}")
         st.write(f"**Summary:** {most_relevant_article['summary']}")
         st.write(f"**Publication Date:** {most_relevant_article['date']}")
-        
