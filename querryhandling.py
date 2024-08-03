@@ -20,8 +20,7 @@ def get_query_embedding(query):
 
 def find_most_relevant_article(query, df):
     query_embedding = get_query_embedding(query)
-    embeddings = df['embedding'].tolist()
-    embeddings = [json.loads(embed) for embed in embeddings if embed is not None]
+    embeddings = df['embedding'].apply(json.loads).tostring()
     similarities = cosine_similarity([query_embedding], embeddings).flatten()
     most_similar_index = np.argmax(similarities)
     most_relevant_article = df.iloc[most_similar_index]
